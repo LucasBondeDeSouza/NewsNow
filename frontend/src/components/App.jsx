@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from 'axios'
+import Header from "./header";
 
 export default () => {
   const [query, setQuery] = useState('');
@@ -15,6 +16,8 @@ export default () => {
   };
 
   return (
+    <>
+    <Header />
     <div className="container mt-5">
       <h1>Buscar Notícias</h1>
       <div className="input-group mb-3">
@@ -48,5 +51,6 @@ export default () => {
         </div>
       </div>
     </div>
+    </>
   );
 }
