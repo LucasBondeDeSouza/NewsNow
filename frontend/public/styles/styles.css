@@ -1,0 +1,15 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header .weather-icon img{
+    height: 25px;
+}
+
+@media (min-width: 1024px) {
+    header .weather-icon img{
+        height: 30px;
+    }
+}

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from 'axios'
 import Header from "./header";
+import Card from "./card";
 
 export default () => {
   const [query, setQuery] = useState('');
@@ -35,17 +36,13 @@ export default () => {
         <div className="row">
           {news.map((article, index) => (
             <div className="col-lg-4 col-md-6 col-sm-12">
-              <div className="card">
-                <img src={article.image} alt={article.title} className="card-img-top" />
-                <div className="card-body">
-                  <h4 class="card-title">{article.title}</h4>
-                  <p class="card-text">
-                    {article.description.length > 20 ? article.description.slice(0, 100) + '...' : article.description}
-                  </p>
-                  <p className="card-text"><small className="text-muted">{article.source.name}</small></p>
-                  <a href={article.url} class="btn btn-primary" target="_blank">Leia mais</a>
-                </div>
-              </div>
+              <Card
+                image={article.image}
+                title={article.title}
+                description={article.description}
+                name={article.source.name}
+                url={article.url}
+              />
             </div>
           ))}
         </div>

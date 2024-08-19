@@ -17,30 +17,35 @@ const options = {
 
 const geocoder = NodeGeocoder(options);
 
-// Função para obter a temperatura pela localização
-async function getTempByLocation(city) {
+// Obter a temperatura e a localização
+app.get('/weather', async (req, res) => {
   try {
-    const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.OPENWEATHER_API_KEY}`);
-    const temp = Math.round(response.data.main.temp)
-    console.log(`${temp}°C`)
-  } catch (error) {
-    console.error('Erro ao obter temperatura:', error);
-  }
-}
+    const locationResponse = await axios.get(`https://ipinfo.io/json?token=${process.env.IPINFO_TOKEN}`);
+    const { city, country } = locationResponse.data;
 
-// Função para obter localização pelo IP
-async function getLocationByIP() {
-  try {
-    const response = await axios.get(`https://ipinfo.io/json?token=${process.env.IPINFO_TOKEN}`);
-    const { city, country } = response.data;
-    console.log(`Localização: ${city}, ${country}`);
-    getTempByLocation(city)
-  } catch (error) {
-    console.error('Erro ao obter localização:', error);
-  }
-}
+    const weatherResponse = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.OPENWEATHER_API_KEY}`);
+    const temp = Math.round(weatherResponse.data.main.temp);
+    const weather = weatherResponse.data.weather[0].main
 
-getLocationByIP()
+    // Obtém informações de fuso horário, nascer e pôr do sol
+    const timezone = weatherResponse.data.timezone; // em segundos a partir do UTC
+    const sunrise = weatherResponse.data.sys.sunrise; // em segundos desde a época Unix
+    const sunset = weatherResponse.data.sys.sunset;   // em segundos desde a época Unix
+
+    // Obtém o horário atual em segundos desde a época Unix
+    const currentTime = Math.floor(Date.now() / 1000); // em segundos
+
+    // Ajusta o horário atual para o fuso horário do local
+    const localTime = currentTime + timezone;
+
+    // Verifica se está de dia ou de noite
+    const isDay = localTime >= sunrise && localTime < sunset ? true : false;
+
+    res.json({ city, country, temp, weather, isDay });
+  } catch (error) {
+    res.status(500).json({ error: 'Erro ao obter localização e temperatura' });
+  }
+});
 
 app.get('/news', async (req, res) => {
   const query = req.query.q;
