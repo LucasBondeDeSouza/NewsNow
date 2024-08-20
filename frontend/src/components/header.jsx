@@ -4,12 +4,12 @@ import axios from "axios";
 export default () => {
     const [location, setLocation] = useState({ city: "", country: "", temp: null, weather: "", isDay: "" });
 
-    const API_URL = 'http://localhost:5000';
+    //const API_URL = 'http://localhost:5000';
 
     useEffect(() => {
         const fetchWeather = async () => {
             try {
-                const response = await axios.get(`${API_URL}/weather`);
+                const response = await axios.get("http://localhost:5000/weather");
                 setLocation(response.data);
             } catch (err) {
                 console.error("Erro ao buscar dados meteorológicos:", err);
