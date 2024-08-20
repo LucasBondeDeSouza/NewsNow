@@ -27,15 +27,15 @@ export default () => {
     }, []);
 
     const getWeatherIcon = (weather, isDay) => {
-        if (weather === 'Clear') {
+        if (weather == 'Clear') {
             return isDay ? <i class="bi bi-brightness-high-fill text-warning fs-3 m-0"></i> : <i class="bi bi-moon-fill text-warning fs-4 m-0"></i>
-        } else if (weather === 'Clouds') {
+        } else if (weather == 'Clouds') {
             return isDay ? <i class="bi bi-cloud-sun-fill fs-3 m-0 cloud-sun"></i> : <i class="bi bi-cloud-moon-fill fs-3 m-0 cloud-moon"></i>
-        } else if (weather === 'Rain') {
+        } else if (weather == 'Rain') {
             return <i class="bi bi-cloud-rain-fill fs-3 m-0 rain"></i>
-        } else if (weather === 'Thunderstorm') {
+        } else if (weather == 'Thunderstorm') {
             return <i class="bi bi-cloud-rain-heavy-fill fs-3 m-0 thunderstorm"></i>
-        } else if (weather === 'Snow') {
+        } else if (weather == 'Snow') {
             return <i class="bi bi-cloud-snow-fill fs-3 m-0 snow"></i>
         }
     };
