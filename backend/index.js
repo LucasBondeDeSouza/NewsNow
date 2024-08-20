@@ -6,8 +6,14 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
+const corsOptions = {
+  origin: 'https://newsnow-pi.vercel.app',
+  methods: 'GET',
+  allowedHeaders: 'Content-Type',
+};
+
 const app = express();
-app.use(cors());
+app.use(cors(corsOptions));
 const PORT = 5000;
 
 const options = {

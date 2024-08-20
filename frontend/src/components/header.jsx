@@ -10,7 +10,7 @@ export default () => {
 
     const [location, setLocation] = useState({ city: "", country: "", temp: null, weather: "", isDay: "" })
 
-    const API_URL = process.env.REACT_APP_API_URL;
+    const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
 
     useEffect(() => {
         const fetchWeather = async () => {
