@@ -10,7 +10,7 @@ export default () => {
 
     const [location, setLocation] = useState({ city: "", country: "", temp: null, weather: "", isDay: "" })
 
-    const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+    const API_URL = process.env.REACT_APP_API_URL;
 
     useEffect(() => {
         const fetchWeather = async () => {
@@ -29,9 +29,11 @@ export default () => {
         if (weather == 'Clear') {
             return isDay == true ? <img src={clear} alt={weather} /> : <i class="bi bi-moon-fill text-warning fs-5 m-0"></i>
         } else if (weather == 'Clouds') {
-            return isDay == true ? <img src={cloud} alt={weather} /> : <i class="bi bi-cloud-moon-fill text-secondary fs-5 m-0"></i>
+            return isDay == true ? <img src={cloud} alt={weather} /> : <i class="bi bi-cloud-moon-fill text-warning fs-5 m-0"></i>
         } else if (weather == 'Rain') {
             return <img src={rain} alt={weather} />
+        } else if (weather == 'Thunderstorm') {
+            return <i class="bi bi-cloud-lightning-rain text-primary fs-4 m-0"></i>
         } else if (weather == 'Snow') {
             return <img src={snow} alt={weather} />
         } 
