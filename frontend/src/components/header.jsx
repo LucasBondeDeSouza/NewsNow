@@ -45,11 +45,11 @@ export default () => {
                     </div>
 
                     <div className="d-flex align-items-center gap-3">
-                        <p className="d-lg-none m-0">{location.city} - {location.country}</p>
-                        <p className="d-none d-lg-inline m-0 fs-5">{location.city} - {location.country}</p>
+                        <p className="d-md-none m-0">{location.city} - {location.country}</p>
+                        <p className="d-none d-md-inline m-0 fs-5">{location.city} - {location.country}</p>
                         <div className="d-flex align-items-center gap-2">
-                            <p className="d-lg-none m-0">{location.temp !== null ? `${location.temp}°C` : "..."}</p>
-                            <p className="d-none d-lg-inline m-0 fs-5">{location.temp !== null ? `${location.temp}°C` : "..."}</p>
+                            <p className="d-md-none m-0">{location.temp !== null ? `${location.temp}°C` : "..."}</p>
+                            <p className="d-none d-md-inline m-0 fs-5">{location.temp !== null ? `${location.temp}°C` : "..."}</p>
                             <div className="weather-icon">
                                 {location.weather ? getWeatherIcon(location.weather, location.isDay) : "..."}
                             </div>
