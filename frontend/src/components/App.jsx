@@ -30,15 +30,14 @@ export default () => {
       <div className="container">
         <div className="row">
           {news.map((article, index) => (
-            <div className="col-lg-4 col-md-6 col-sm-12" key={index}>
-              <Card
-                image={article.image}
-                title={article.title}
-                description={article.description}
-                name={article.source.name}
-                url={article.url}
-              />
-            </div>
+            <Card
+              key={index}
+              image={article.image}
+              title={article.title}
+              description={article.description}
+              name={article.source.name}
+              url={article.url}
+            />
           ))}
         </div>
       </div>
