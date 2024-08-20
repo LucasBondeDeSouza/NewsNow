@@ -8,9 +8,11 @@ export default () => {
   const [news, setNews] = useState([]);
   const [query, setQuery] = useState('');
 
+  const API_URL = process.env.REACT_APP_API_URL;
+
   const searchNews = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/news?q=${query}`);
+      const response = await axios.get(`${API_URL}/news?q=${query}`);
       setNews(response.data);
     } catch (error) {
       console.error("Erro ao buscar notícias", error);
