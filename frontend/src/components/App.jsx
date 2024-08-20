@@ -37,6 +37,7 @@ export default () => {
               description={article.description}
               name={article.source.name}
               url={article.url}
+              publishedAt={article.publishedAt}
             />
           ))}
         </div>
