@@ -8,6 +8,30 @@ header .weather-icon img{
     height: 25px;
 }
 
+.cloud-sun, .cloud-moon {
+    background: linear-gradient(39deg, #26A3B9 52%, #FFC107 48%);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.rain {
+    background: linear-gradient(to bottom, #D9ECF2 70%, #26A3B9 30%);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.thunderstorm {
+    background: linear-gradient(to bottom, #D9ECF2 65%, #26A3B9 35%);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.snow {
+    background: linear-gradient(to bottom, #D9ECF2 70%, #90CAF9 30%);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
 @media (min-width: 1024px) {
     header .weather-icon img{
         height: 30px;
