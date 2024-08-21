@@ -7,6 +7,7 @@ import SearchNews from "./searchNews";
 export default () => {
   const [news, setNews] = useState([]);
   const [query, setQuery] = useState('');
+  const [darkMode, setDarkMode] = useState(false);
 
   //const API_URL = 'http://localhost:5000';
 
@@ -19,14 +20,19 @@ export default () => {
     }
   };
 
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+  };
+
   return (
-    <>
-      <Header />
+    <div className={`min-vh-100 ${darkMode ? "bg-dark text-light" : ""}`}>
+      <Header toggleDarkMode={toggleDarkMode} />
 
       <SearchNews 
         query={query} 
         setQuery={setQuery} 
-        onClick={searchNews} 
+        onClick={searchNews}
+        darkMode={darkMode}
       />
 
       <div className="container">
@@ -40,10 +46,11 @@ export default () => {
               name={article.source.name}
               url={article.url}
               publishedAt={article.publishedAt}
+              darkMode={darkMode}
             />
           ))}
         </div>
       </div>
-    </>
+    </div>
   );
 };

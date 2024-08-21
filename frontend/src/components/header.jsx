@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-export default () => {
+export default ({ toggleDarkMode }) => {
     const [location, setLocation] = useState({ city: "", country: "", temp: null, weather: "", isDay: "" });
 
     //const API_URL = 'http://localhost:5000';
@@ -58,6 +58,10 @@ export default () => {
                             <div className="weather-icon">
                                 {location.weather ? getWeatherIcon(location.weather, location.isDay) : "..."}
                             </div>
+                        </div>
+
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" onClick={toggleDarkMode} />
                         </div>
                     </div>
                 </div>
