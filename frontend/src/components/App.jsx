@@ -13,7 +13,7 @@ export default () => {
 
   const searchNews = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/news?q=${query}`);
+      const response = await axios.get(`https://newsnow-server-drab.vercel.app/news?q=${query}`);
       setNews(response.data);
     } catch (error) {
       console.error("Erro ao buscar notícias", error);

@@ -9,7 +9,7 @@ export default ({ toggleDarkMode }) => {
     useEffect(() => {
         const fetchWeather = async () => {
             try {
-                const response = await axios.get("http://localhost:5000/weather");
+                const response = await axios.get("https://newsnow-server-drab.vercel.app/weather");
                 setLocation(response.data);
             } catch (err) {
                 console.error("Erro ao buscar dados meteorológicos:", err);
