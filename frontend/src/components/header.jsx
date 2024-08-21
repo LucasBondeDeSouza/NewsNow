@@ -60,7 +60,7 @@ export default ({ toggleDarkMode }) => {
                             </div>
                         </div>
 
-                        <div class="form-check form-switch">
+                        <div class="form-check form-switch m-0">
                             <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" onClick={toggleDarkMode} />
                         </div>
                     </div>
