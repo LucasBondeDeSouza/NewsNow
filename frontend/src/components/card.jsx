@@ -11,7 +11,7 @@ export default (props) => {
             <a href={props.url} className="text-decoration-none text-reset">
                 <div className="card">
                     <img src={props.image} alt={props.title} className="card-img-top" />
-                    <div className={`card-body ${props.darkMode ? "bg-dark text-light" : ""}`}>
+                    <div className={`card-body rounded-bottom ${props.darkMode ? "bg-dark text-light" : ""}`}>
                         <h4 className="card-title">{props.title}</h4>
                         <p className="card-text">
                             {props.description.length > 100 ? props.description.slice(0, 100) + '...' : props.description}

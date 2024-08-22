@@ -21,7 +21,7 @@ export default ({ toggleDarkMode }) => {
         // Atualiza os dados a cada segundo
         const intervalId = setInterval(() => {
             fetchWeather();
-        }, 1000);
+        }, 60000);
 
         return () => clearInterval(intervalId); // Limpa o intervalo quando o componente é desmontado
     }, []);
