@@ -6,7 +6,7 @@ export default ({ toggleDarkMode }) => {
 
     //const API_URL = 'http://localhost:5000';
 
-    useEffect(() => {
+    /*useEffect(() => {
         const fetchWeather = async () => {
             try {
                 const response = await axios.get("https://newsnow-server-drab.vercel.app/weather");
@@ -38,7 +38,7 @@ export default ({ toggleDarkMode }) => {
         } else if (weather == 'Snow') {
             return <i className="bi bi-cloud-snow-fill fs-3 m-0 snow"></i>
         }
-    };
+    };*/
 
     return (
         <header>
@@ -50,7 +50,7 @@ export default ({ toggleDarkMode }) => {
                     </div>
 
                     <div className="d-flex align-items-center gap-3">
-                        <p className="d-md-none m-0">{location.city} - {location.country}</p>
+                        {/*<p className="d-md-none m-0">{location.city} - {location.country}</p>
                         <p className="d-none d-md-inline m-0 fs-5">{location.city} - {location.country}</p>
                         <div className="d-flex align-items-center gap-2">
                             <p className="d-md-none m-0">{location.temp !== null ? `${location.temp}°C` : "..."}</p>
@@ -58,7 +58,7 @@ export default ({ toggleDarkMode }) => {
                             <div className="weather-icon">
                                 {location.weather ? getWeatherIcon(location.weather, location.isDay) : "..."}
                             </div>
-                        </div>
+                        </div>*/}
 
                         <div className="form-check form-switch m-0">
                             <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" onClick={toggleDarkMode} />
