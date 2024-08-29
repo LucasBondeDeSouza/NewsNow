@@ -26,7 +26,7 @@ export default () => {
 
   return (
     <div className={`min-vh-100 ${darkMode ? "bg-dark text-light" : ""}`}>
-      <Header toggleDarkMode={toggleDarkMode} />
+      <Header toggleDarkMode={toggleDarkMode} darkMode={darkMode} />
 
       <SearchNews 
         query={query} 

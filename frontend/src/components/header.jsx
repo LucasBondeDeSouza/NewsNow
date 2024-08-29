@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-export default ({ toggleDarkMode }) => {
+export default ({ toggleDarkMode, darkMode }) => {
     const [location, setLocation] = useState({ city: "", country: "", temp: null, weather: "", isDay: "" });
 
     //const API_URL = 'http://localhost:5000';
@@ -41,28 +41,26 @@ export default ({ toggleDarkMode }) => {
     };*/
 
     return (
-        <header>
-            <div className="px-3 py-2 border-bottom mb-3">
-                <div className="container d-flex justify-content-between align-items-center">
-                    <div className="logo d-flex align-items-center gap-2">
-                        <i className="bi bi-newspaper fs-2 m-0"></i>
-                        <h5 className="d-none d-lg-inline m-0">NewsNow</h5>
-                    </div>
+        <header className={`px-3 py-2 border-bottom mb-3 sticky-top ${darkMode ? "bg-dark text-light" : "bg-white"}`}>
+            <div className="container d-flex justify-content-between align-items-center">
+                <div className="logo d-flex align-items-center gap-2">
+                    <i className="bi bi-newspaper fs-2 m-0"></i>
+                    <h5 className="d-none d-lg-inline m-0">NewsNow</h5>
+                </div>
 
-                    <div className="d-flex align-items-center gap-3">
-                        {/*<p className="d-md-none m-0">{location.city} - {location.country}</p>
-                        <p className="d-none d-md-inline m-0 fs-5">{location.city} - {location.country}</p>
-                        <div className="d-flex align-items-center gap-2">
-                            <p className="d-md-none m-0">{location.temp !== null ? `${location.temp}°C` : "..."}</p>
-                            <p className="d-none d-md-inline m-0 fs-5">{location.temp !== null ? `${location.temp}°C` : "..."}</p>
-                            <div className="weather-icon">
-                                {location.weather ? getWeatherIcon(location.weather, location.isDay) : "..."}
-                            </div>
-                        </div>*/}
-
-                        <div className="form-check form-switch m-0">
-                            <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" onClick={toggleDarkMode} />
+                <div className="d-flex align-items-center gap-3">
+                    {/*<p className="d-md-none m-0">{location.city} - {location.country}</p>
+                    <p className="d-none d-md-inline m-0 fs-5">{location.city} - {location.country}</p>
+                    <div className="d-flex align-items-center gap-2">
+                        <p className="d-md-none m-0">{location.temp !== null ? `${location.temp}°C` : "..."}</p>
+                        <p className="d-none d-md-inline m-0 fs-5">{location.temp !== null ? `${location.temp}°C` : "..."}</p>
+                        <div className="weather-icon">
+                            {location.weather ? getWeatherIcon(location.weather, location.isDay) : "..."}
                         </div>
+                    </div>*/}
+
+                    <div className="form-check form-switch m-0">
+                        <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" onClick={toggleDarkMode} />
                     </div>
                 </div>
             </div>
