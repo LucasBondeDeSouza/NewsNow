@@ -9,8 +9,6 @@ export default () => {
   const [query, setQuery] = useState('');
   const [darkMode, setDarkMode] = useState(false);
 
-  //const API_URL = 'https://newsnow-server-drab.vercel.app/news?q=${query}';
-
   const searchNews = async () => {
     try {
       const response = await axios.get(`https://newsnow-server-drab.vercel.app/news?q=${query}`);
