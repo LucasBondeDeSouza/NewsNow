@@ -9,7 +9,7 @@ export default () => {
   const [query, setQuery] = useState('');
   const [darkMode, setDarkMode] = useState(false);
 
-  //const API_URL = 'http://localhost:5000';
+  //const API_URL = 'https://newsnow-server-drab.vercel.app/news?q=${query}';
 
   const searchNews = async () => {
     try {
