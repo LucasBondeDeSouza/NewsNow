@@ -3,6 +3,7 @@ import axios from "axios";
 import Header from "./header";
 import Card from "./card";
 import SearchNews from "./searchNews";
+import ButtonDarkMode from "./ButtonDarkMode";
 
 export default () => {
   const [news, setNews] = useState([]);
@@ -34,6 +35,8 @@ export default () => {
 
   return (
     <div className={`min-vh-100 ${darkMode ? "bg-dark text-light" : ""}`}>
+      <ButtonDarkMode darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+      
       <Header 
         toggleDarkMode={toggleDarkMode} 
         darkMode={darkMode} 

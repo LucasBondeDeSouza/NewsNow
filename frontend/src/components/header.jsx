@@ -1,7 +1,7 @@
 import React from "react";
 import { US, BR, ES } from 'country-flag-icons/react/3x2';
 
-export default ({ toggleDarkMode, darkMode, language, handleLanguageChange }) => {
+export default ({ darkMode, language, handleLanguageChange }) => {
 
     const chooseFlag = (language) => {
         if (language === 'pt') {

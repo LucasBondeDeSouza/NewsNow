@@ -37,6 +37,13 @@ select:focus {
     box-shadow: none;
 }
 
+.btn-dark-mode {
+    bottom: 20px;
+    right: 20px;
+    height: 40px;
+    width: 40px;
+}
+
 @media (min-width: 1024px) {
     header .weather-icon img{
         height: 30px;
