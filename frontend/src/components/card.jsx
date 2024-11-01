@@ -8,7 +8,7 @@ export default (props) => {
 
     return (
         <div className="col-lg-4 col-md-6 col-sm-12 my-3" key={props.key}>
-            <a href={props.url} className="text-decoration-none text-reset">
+            <a href={props.url} target="_blank" className="text-decoration-none text-reset">
                 <div className="card">
                     <img src={props.image} alt={props.title} className="card-img-top" />
                     <div className={`card-body rounded-bottom ${props.darkMode ? "bg-dark text-light" : ""}`}>
