@@ -7,11 +7,21 @@ import SearchNews from "./searchNews";
 export default () => {
   const [news, setNews] = useState([]);
   const [query, setQuery] = useState('');
+  const [language, setLanguage] = useState('pt')
   const [darkMode, setDarkMode] = useState(false);
+
+  const handleLanguageChange = (e) => {
+    setLanguage(e.target.value)
+  }
 
   const searchNews = async () => {
     try {
-      const response = await axios.get(`https://newsnow-server-drab.vercel.app/news?q=${query}`);
+      const response = await axios.get(`https://newsnow-server-drab.vercel.app/news`, {
+        params: {
+          q: query,
+          lang: language
+        }
+      });
       setNews(response.data);
     } catch (error) {
       console.error("Erro ao buscar notícias", error);
@@ -24,7 +34,13 @@ export default () => {
 
   return (
     <div className={`min-vh-100 ${darkMode ? "bg-dark text-light" : ""}`}>
-      <Header toggleDarkMode={toggleDarkMode} darkMode={darkMode} />
+      <Header 
+        toggleDarkMode={toggleDarkMode} 
+        darkMode={darkMode} 
+        language={language}
+        setLanguage={setLanguage} 
+        handleLanguageChange={handleLanguageChange}
+      />
 
       <SearchNews 
         query={query} 

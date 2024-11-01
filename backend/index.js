@@ -11,8 +11,9 @@ const PORT = 5000;
 
 app.get('/news', async (req, res) => {
   const query = req.query.q;
+  const language = req.query.lang;
   const apiKey = process.env.GNEWS_API_KEY;
-  const url = `https://gnews.io/api/v4/search?q=${query}&lang=pt&apikey=${apiKey}&max=9`;
+  const url = `https://gnews.io/api/v4/search?q=${query}&lang=${language}&apikey=${apiKey}`;
 
   try {
     const response = await axios.get(url);

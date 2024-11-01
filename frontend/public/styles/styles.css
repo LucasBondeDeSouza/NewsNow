@@ -32,6 +32,11 @@ header .weather-icon img{
     color: transparent;
 }
 
+select:focus {
+    outline: none;
+    box-shadow: none;
+}
+
 @media (min-width: 1024px) {
     header .weather-icon img{
         height: 30px;
