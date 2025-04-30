@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
-import Header from "./header";
-import Card from "./card";
-import SearchNews from "./searchNews";
-import ButtonDarkMode from "./ButtonDarkMode";
+import Header from "./components/header";
+import Card from "./components/card";
+import SearchNews from "./components/searchNews";
+import ButtonDarkMode from "./components/ButtonDarkMode";
 
 export default () => {
   const [news, setNews] = useState([]);
